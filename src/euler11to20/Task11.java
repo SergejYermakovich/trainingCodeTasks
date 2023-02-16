@@ -32,10 +32,10 @@ public class Task11 {
     }
 
 
-    static int checkDown(int[][] array, int limit){
+    static int checkDown(int[][] array, int limit) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length - limit; j++) {
-                for (int k = 0; k <  limit; k++) {
+                for (int k = 0; k < limit; k++) {
 
 
                 }
@@ -45,15 +45,15 @@ public class Task11 {
         return 1;
     }
 
-    static int checkUp(int[][] array){
+    static int checkUp(int[][] array) {
         return 1;
     }
 
-    static int checkLeft(int[][] array){
+    static int checkLeft(int[][] array) {
         return 1;
     }
 
-    static int checkRight(int[][] array){
+    static int checkRight(int[][] array) {
         return 1;
     }
 }
