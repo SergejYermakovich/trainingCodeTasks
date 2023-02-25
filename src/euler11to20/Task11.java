@@ -1,6 +1,9 @@
 package euler11to20;
 
 public class Task11 {
+
+    public static int LIMIT = 4;
+
     public static void main(String[] args) {
 
         int[][] array = {
@@ -26,34 +29,36 @@ public class Task11 {
                 {1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48}
         };
 
-        int limit = 4, maxProduct = 1;
-
+        System.out.println(checkDiag(array));
 
     }
 
+    static int checkDiag(int[][] a) {
 
-    static int checkDown(int[][] array, int limit) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length - limit; j++) {
-                for (int k = 0; k < limit; k++) {
+        int maxProduct = 1;
+        for (int x = 0; x < a.length -LIMIT; x++) {
+            for (int y = 0; y < a.length-LIMIT ; y++) {
+                int verticalProduct = 0, horizontalProduct = 0, diagonalProduct1 = 0, diagonalProduct2 = 0;
 
+                verticalProduct = a[x][y] * a[x + 1][y] * a[x + 2][y] * a[x + 3][y];
 
-                }
+                horizontalProduct = a[x][y] * a[x][y + 1] * a[x][y + 2] * a[x][y + 3];
+
+                diagonalProduct1 = a[x][y] * a[x + 1][y + 1] * a[x + 2][y + 2] * a[x + 3][y + 3];
+
+//                diagonalProduct2 = a[x][y] * a[x - 1][y + 1] * a[x - 2][y + 2] * a[x - 3][y + 3];
+
+                maxProduct = Math.max(
+                        Math.max(
+                                Math.max(maxProduct, verticalProduct),
+                                Math.max(horizontalProduct, diagonalProduct1)),
+                        diagonalProduct2);
 
             }
         }
-        return 1;
-    }
 
-    static int checkUp(int[][] array) {
-        return 1;
-    }
+        return maxProduct;
 
-    static int checkLeft(int[][] array) {
-        return 1;
-    }
 
-    static int checkRight(int[][] array) {
-        return 1;
     }
 }
